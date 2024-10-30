@@ -12,14 +12,28 @@ class PersegiPanjang:
     def __str__(self):
         return f'Persegi panjang, panjang {self.panjang} cm, dan lebar {self.lebar} cm'
 
+def main():
+    while True:
+        try:
+            panjang = float(input("Masukkan panjang persegi panjang (cm): "))
+            lebar = float(input("Masukkan lebar persegi panjang (cm): "))
 
-panjang = float(input("Masukkan panjang persegi panjang (cm): "))
-lebar = float(input("Masukkan lebar persegi panjang (cm): "))
+            
+            if panjang <= 0 or lebar <= 0:
+                print("Panjang dan lebar harus lebih besar dari nol. Silakan coba lagi.")
+                continue
 
+           
+            persegi_panjang = PersegiPanjang(panjang, lebar)
 
-persegi_panjang = PersegiPanjang(panjang, lebar)
+            
+            print(persegi_panjang)
+            print(f'Keliling: {persegi_panjang.hitung_keliling()} cm')
+            print(f'Luas: {persegi_panjang.hitung_luas()} cm²')
+            break  
 
+        except ValueError:
+            print("Input tidak valid. masukkan angka yang benar.")
 
-print(persegi_panjang)
-print(f'Keliling: {persegi_panjang.hitung_keliling()} cm')
-print(f'Luas: {persegi_panjang.hitung_luas()} cm²')
+if __name__ == "__main__":
+    main()
